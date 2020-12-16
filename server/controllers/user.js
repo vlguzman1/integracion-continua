@@ -86,50 +86,8 @@ function recoveryPassword(req, res) {
           message: 'No hay usuarios registrados con ese email.'
         })
       } else {
-        console.log(data)
-        let messageEmail = {
-          to: `<${data}>`,
-          subject: 'Recuperación de tu contraseña',
-          template: 'recovery-password',
-          context: {
-            link: `${process.env.IPPROD}/recuperar-contrasena?user=${userFound._id}`,
-          },
-        }
-
-        const EmailRecovery = {};
-        EmailRecovery.transporter = nodemailer.createTransport(
-            {
-                service: 'Gmail',
-                auth: {
-                  user: process.env.EMAIL_APPLICATION,
-                  pass: process.env.PASSWORD_EMAIL_APPLICATION
-                },
-            }
-        );
-        EmailRecovery.transporter.use('compile', hbs({
-          viewEngine: {
-            extName: '.hbs',
-            partialsDir: path.join(__dirname, '../views/templates-email'),
-            layoutsDir: path.join(__dirname, '../views/templates-email'),
-            defaultLayout: 'recovery-password.hbs',
-          },
-          extName: '.hbs',
-          viewPath: path.join(__dirname, '../views/templates-email')
-        }));
-        EmailRecovery.transporter.sendMail(messageEmail, (error, info) => {
-          if (error) {
-            console.log(error);
-            res.status(500).send({
-              message: '[ERROR] Sending email user to recovery password'
-            })
-
-            return;
-          }
-
-          EmailRecovery.transporter.close();
-          res.status(200).send({
-            message: 'Se ha enviado un email con las instrucciones para recuperar tu contraseña.',
-          })
+        res.status(200).send({
+          message: 'Se ha enviado un email con las instrucciones para recuperar tu contraseña.',
         })
       }
     }
