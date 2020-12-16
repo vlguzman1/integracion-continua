@@ -7,19 +7,21 @@ export const routes: Routes = [
   {
     path: '',
     children: [
+      { path: '', redirectTo: '/login', pathMatch: 'full' },
+      {
+        path: 'home',
+        loadChildren: 'app/modules/homepage/homepage.module#HomepageModule',
+      },
       {
         path: 'login',
-        canActivate: [fromGuards.LoggedOutGuard],
         loadChildren: 'app/modules/auth/login/login.module#LoginModule',
       },
       {
         path: 'register',
-        canActivate: [fromGuards.LoggedOutGuard],
         loadChildren: 'app/modules/auth/register/register.module#RegisterModule',
       },
       {
         path: 'recovery-password',
-        canActivate: [fromGuards.LoggedOutGuard],
         loadChildren: 'app/modules/auth/recovery-password/recovery-password.module#RecoveryPasswordModule',
       },
     ]
