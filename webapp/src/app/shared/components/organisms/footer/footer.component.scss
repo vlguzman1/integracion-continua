@@ -1,0 +1,62 @@
+@import "../../../../../assets/styles/base/variables";
+
+.o-footer {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #101010;
+
+  > .container {
+    text-align: center;
+  }
+
+  &__menu {
+    display: inline-block;
+    text-align: center;
+
+    li {
+      position: relative;
+      display: block;
+      margin-bottom: 20px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      @media all and (min-width: $screen-md) {
+        display: inline-block;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-bottom: 0;
+        border-left: 1px solid #FFFFFF;
+
+        &:last-child {
+          border-right: 1px solid #FFFFFF;
+        }
+      }
+
+      a {
+        color: darken(#FFFFFF, 20%);
+        font-size: 16px;
+        font-family: $font-paragraph;
+        line-height: 16px;
+        letter-spacing: -0.58px;
+
+        &:hover {
+          color: #FFFFFF;
+        }
+      }
+    }
+  }
+
+  &__brand {
+    position: absolute;
+    top: calc(100% - 40px);
+    left: -60px;
+
+    img {
+      width: 45px;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@app/*": ["src/app/*"],
+      "@environments/*": ["src/environments/*"],
+      "@core/*": ["src/app/core/*"],
+      "@shared/*": ["src/app/shared/*"],
+      "@login/*": ["src/app/modules/auth/login/*"],
+      "@change-password/*": ["src/app/modules/auth/change-password/*"],
+      "@register/*": ["src/app/modules/auth/register/*"],
+      "@recovery-password/*": ["src/app/modules/auth/recovery-password/*"],
+      "@profile/*": ["src/app/modules/profile/*"],
+      "@styles/*": ["assets/styles/*"]
+    },
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "dom",
+      "es2017"
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+.swiper-container {
+  overflow: hidden;
+}
+
+.mat-select-panel .mat-optgroup-label,
+.mat-select-panel .mat-option {
+  height: 40px !important;
+  line-height: 40px !important;
+}
+
+.mat-option-text {
+  font-family: $font-paragraph;
+}
+
+.mat-calendar {
+  &-period-button {
+    .mat-button-wrapper {
+      font-family: $font-paragraph;
+    }
+  }
+
+  .mat-calendar-body {
+    &-label {
+      font-family: $font-paragraph;
+    }
+
+    &-cell-content {
+      font-family: $font-light;
+    }
+
+    &-selected {
+      border-color: $color-primary;
+      background-color: $color-primary;
+      color: #FFFFFF;
+    }
+  }
+}

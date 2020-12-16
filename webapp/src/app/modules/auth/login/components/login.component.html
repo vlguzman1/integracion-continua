@@ -1,0 +1,53 @@
+<section class="p-login">
+    <project-loader [show]="isLoading$ | async" [overlay]="true"></project-loader>
+
+    <div class="p-login__container grid-2_xs-1-middle">
+        <div class="p-login__form col">
+            <div class="container">
+                <form [formGroup]="loginFormGroup" class="o-forms grid" (ngSubmit)="onLogin()" autocomplete="off">
+                    <h1 class="title col-12">Inicia <span>Sesión</span></h1>
+
+                    <div class="o-forms__row col-12">
+                        <mat-form-field>
+                            <mat-label>Correo electrónico:</mat-label>
+                            <input matInput formControlName="email" required autocomplete="off">
+                            <mat-error *ngIf="getField('email').errors?.required">
+                                Debe especificar su correo electrónico
+                            </mat-error>
+                            <mat-error *ngIf="!getField('email').errors?.required && getField('email').errors?.pattern">
+                                Ingrese un correo electrónico valido
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="o-forms__row col-12">
+                        <mat-form-field>
+                            <mat-label>Contraseña:</mat-label>
+                            <input type="password" matInput formControlName="password" required autocomplete="off">
+                            <mat-error *ngIf="getField('password').invalid">
+                                Debe especificar su contraseña
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="o-forms__row col-12">
+                        <a class="recovery-password" (click)="goTo('recovery-password')">¿Olvidaste tu contraseña?</a>
+                    </div>
+
+                    <div class="o-forms__actions col-12">
+                        <button class="a-button a-button--dark" type="button" (click)="goTo('register')">
+                            Regístrate
+                        </button>
+
+                        <button class="a-button a-button--accent" type="submit">
+                            Inicia sesión
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="p-login__slider col hidden-xs" style="background-image: url('../../../../../assets/images/wallpaper.jpg');">
+        </div>
+    </div>
+</section>

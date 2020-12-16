@@ -1,0 +1,61 @@
+@import "../../../../../assets/styles/base/variables";
+
+.p-register {
+  > .container {
+    @media all and (min-width: $screen-md) {
+      height: 100%;
+    }
+  }
+
+  &__form {
+    max-width: 400px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+
+    .title {
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 30px;
+      font-family: $font-light;
+      line-height: 25px;
+    }
+
+    .mat-form-field {
+      width: 100%;
+    }
+
+    .terms {
+      max-width: 300px;
+      margin-right: auto;
+      margin-bottom: 20px;
+      margin-left: auto;
+      font-family: $font-light;
+
+      .mat-checkbox-label {
+        font-size: 15px;
+      }
+
+      @media all and (min-width: $screen-md) {
+        margin-bottom: 40px;
+      }
+      @media all and (min-width: $screen-lg) {
+        margin-bottom: 60px;
+      }
+
+      .mat-checkbox-label {
+        white-space: normal;
+      }
+
+      a {
+        color: $color-accent;
+        font-family: inherit;
+        font-size: inherit;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+  

@@ -1,0 +1,25 @@
+@import "../../../../../assets/styles/base/variables";
+@import "../../../../../assets/styles/base/utils";
+@import '../../../../../assets/styles/packages/gridlex/gridlex';
+@import "../../../../../assets/styles/base/grid";
+
+.o-header {
+  $this: &;
+
+  position: relative;
+  padding: 10px 20px;
+  background-color: #EDEDED;
+
+  #{$this}__container {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  #{$this}__brand {
+    text-align: center;
+
+    img {
+      height: 75px;
+    }
+  }
+}

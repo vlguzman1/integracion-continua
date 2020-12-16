@@ -1,0 +1,54 @@
+@import "../../../../../assets/styles/base/variables";
+
+.p-login {
+  height: 100%;
+
+  &__container {
+    height: 100%;
+  }
+
+  &__form {
+    .o-forms {
+      max-width: 665px;
+      margin-right: auto;
+      margin-left: auto;
+      text-align: center;
+      
+      .title {
+        margin-bottom: 20px;
+      }
+  
+      p {
+        margin-bottom: 30px;
+        font-family: $font-light;
+        line-height: 25px;
+      }
+  
+      .mat-form-field {
+        width: 100%;
+        max-width: 400px;
+      }
+  
+      .recovery-password {
+        display: block;
+        padding-top: 10px;
+        padding-bottom: 30px;
+        color: $color-accent;
+        font-size: 14px;
+        cursor: pointer;
+  
+        @media all and (min-width: $screen-md) {
+          padding-top: 20px;
+          padding-bottom: 40px;
+        }
+      }
+    }
+  }
+
+  &__slider {
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+}

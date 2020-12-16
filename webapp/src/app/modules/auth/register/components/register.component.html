@@ -1,0 +1,55 @@
+<section class="p-register h-full">    
+    <div class="container">
+        <project-loader [show]="isLoading$ | async" [overlay]="true"></project-loader>
+        <form [formGroup]="registerFormGroup" class="p-register__form o-forms grid-middle-center h-full" (ngSubmit)="onRegister()" autocomplete="off">
+            <div class="col">
+                <div class="grid">
+                    <h1 class="title col-12">Registrate</h1>
+                    
+                    <div class="o-forms__row col-12">
+                        <mat-form-field>
+                            <mat-label>Correo electrónico:</mat-label>
+                            <input matInput formControlName="email" required autocomplete="off">
+                            <mat-error *ngIf="getField('email').errors?.required">
+                                Debe especificar su correo electrónico
+                            </mat-error>
+                            <mat-error *ngIf="!getField('email').errors?.required && getField('email').errors?.pattern">
+                                Ingrese un correo electrónico valido
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="o-forms__row col-12">
+                        <mat-form-field>
+                            <mat-label>Crear contraseña:</mat-label>
+                            <input type="password" matInput formControlName="password" required autocomplete="off">
+                            <mat-error *ngIf="getField('password').invalid">
+                                Debe especificar su contraseña
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="o-forms__row col-12">
+                        <mat-form-field>
+                            <mat-label>Confirmar contraseña:</mat-label>
+                            <input type="password" matInput formControlName="confirmPassword" required autocomplete="off">
+                            <mat-error *ngIf="getField('confirmPassword').invalid">
+                                Las contraseñas deben ser las mismas
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="o-forms__row col-12 terms">
+                        <mat-checkbox formControlName="terms_conditions">Al registrarme acepto <a (click)="showModalTerms()" target="_blank">los términos y condiciones</a></mat-checkbox>
+                    </div>
+
+                    <div class="o-forms__actions col-12">
+                        <button class="a-button a-button--accent" type="submit" [disabled]="!registerFormGroup.valid && !registerFormGroup.value.terms_conditions">
+                            Regístrate
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
